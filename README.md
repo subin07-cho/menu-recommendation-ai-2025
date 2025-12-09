@@ -92,22 +92,39 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
 └── README.md                              # 프로젝트 설명서 (현재 문서)
 ```
 
-##🌐 Gradio Web UI 코드
+##🌐 Gradio Web UI 코드 (요약)
 ---
 with gr.Blocks() as demo:
     gr.Markdown("## 🤖 AI 기반 머신러닝 맛집 추천 시스템")
 
-    region = gr.Dropdown(choices=sorted(df["위치(지하철역)"].unique()), label="지하철역 선택")
-    food_type = gr.Dropdown(choices=sorted(df["음식종류"].unique()), label="음식 종류")
-    budget = gr.Slider(5000, 30000, value=12000, step=500, label="예산(원)")
-    age = gr.Dropdown(choices=sorted(df["연령층"].unique()), label="연령층")
+    region = gr.Dropdown(
+        choices=sorted(df["위치(지하철역)"].unique()),
+        label="지하철역 선택"
+    )
+    food_type = gr.Dropdown(
+        choices=sorted(df["음식종류"].unique()),
+        label="음식 종류"
+    )
+    budget = gr.Slider(
+        5000, 30000, value=12000, step=500,
+        label="예산(원)"
+    )
+    age = gr.Dropdown(
+        choices=sorted(df["연령층"].unique()),
+        label="연령층"
+    )
 
     btn = gr.Button("🔍 AI 추천받기")
     output_box = gr.Markdown()
 
-    btn.click(recommend_ai, inputs=[region, food_type, budget, age], outputs=output_box)
+    btn.click(
+        recommend_ai,
+        inputs=[region, food_type, budget, age],
+        outputs=output_box
+    )
 
 demo.launch()
+
 
 ## 🏁 실행 방법
 ---
