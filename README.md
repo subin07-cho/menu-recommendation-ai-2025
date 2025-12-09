@@ -133,10 +133,10 @@ demo.launch()
 ## 🏁 실행 방법
 
 ✅ 1) 로컬 환경에서 실행
-1. 필요한 라이브러리 설치:
-pip install -r requirements.txt
-또는
-pip install pandas gradio
+   1. 필요한 라이브러리 설치:
+   pip install -r requirements.txt
+   또는
+   pip install pandas gradio
 
 2. 데이터 파일 위치 확인:
 /data/korean_restaurants_10000.xlsx
