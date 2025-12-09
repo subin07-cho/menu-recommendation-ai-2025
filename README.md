@@ -122,9 +122,8 @@ with gr.Blocks() as demo:
         inputs=[region, food_type, budget, age],
         outputs=output_box
     )
-
 demo.launch()
----
+
 
 ## 🏁 실행 방법
 ---
