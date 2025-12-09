@@ -3,7 +3,7 @@ Review-based menu recommendation system using sentiment analysis
 
 # 🤖 AI 기반 머신러닝 맛집 추천 시스템
 
-이 프로젝트는 맛집/배달앱 리뷰를 분석해서  
+이 프로젝트는 가상의 리뷰를 분석해서  
 가게별로 **만족도가 가장 높은 메뉴 TOP N**을 추천해 주는 시스템입니다.
 
 ---
