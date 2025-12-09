@@ -1,6 +1,5 @@
 
-## 🤖 AI 기반 머신러닝 맛집 추천 시스템 
-(AI-Based Machine Learning Restaurant Recommendation System)
+## 🤖 AI 기반 머신러닝 맛집 추천 시스템 (AI-Based Machine Learning Restaurant Recommendation System)
  
 
 이 프로젝트는 지하철역, 음식 종류, 예산, 연령층 별 맛집을 추천해주는
