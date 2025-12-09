@@ -124,7 +124,7 @@ with gr.Blocks() as demo:
     )
 
 demo.launch()
-
+---
 
 ## 🏁 실행 방법
 ---
