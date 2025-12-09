@@ -1,0 +1,147 @@
+import gradio as gr
+import pandas as pd
+import numpy as np
+import lightgbm as lgb
+from sklearn.model_selection import train_test_split
+
+# ------------------------
+# 1. 데이터 로드 및 모델 학습
+# ------------------------
+df = pd.read_excel("Restaurants.xlsx")
+df["가격대"] = df["가격대"].astype(float)
+
+# Synthetic label 생성
+ideal_budget = 12000
+df["budget_diff"] = abs(df["가격대"] - ideal_budget)
+
+df["label"] = np.where(
+    (df["평점"] >= 4.0) & (df["budget_diff"] <= 3000),
+    1,
+    0
+)
+
+df_ml = pd.get_dummies(df, columns=["음식종류", "연령층", "방문목적"])
+
+X = df_ml.drop(columns=["식당명", "리뷰", "위치(지하철역)", "label"])
+y = df_ml["label"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+model = lgb.LGBMClassifier(n_estimators=300, learning_rate=0.05)
+model.fit(X_train, y_train)
+
+df["predict_score"] = model.predict_proba(X)[:, 1]
+
+
+# ------------------------
+# 2. 추천 함수
+# ------------------------
+def recommend_ai(region, food_type, budget, age):
+
+    # ----- 기본 필터 -----
+    filtered = df[(df["위치(지하철역)"] == region) &
+                  (df["음식종류"] == food_type)]
+
+    if filtered.empty:
+        return "조건에 맞는 식당이 없습니다."
+
+    filtered = filtered.copy()
+
+    # ----- 🔥 예산 필터: budget - 3000 ~ budget + 3000 -----
+    min_price = budget - 3000
+    max_price = budget + 3000
+
+    filtered = filtered[(filtered["가격대"] >= min_price) &
+                        (filtered["가격대"] <= max_price)]
+
+    if filtered.empty:
+        return f"예산 범위({min_price}원 ~ {max_price}원)에 맞는 식당이 없습니다."
+
+    # 예산 차이 계산
+    filtered["user_budget_diff"] = abs(filtered["가격대"] - budget)
+
+    # 최종 점수 (ML 70% + 가격 적합도 30%)
+    filtered["final_score"] = (
+        filtered["predict_score"] * 0.7 +
+        (1 / (filtered["user_budget_diff"] + 1)) * 0.3
+    )
+
+    # Top 5
+    result = filtered.sort_values("final_score", ascending=False).head(5)
+    top = result.iloc[0]
+
+    # -----------------------------
+    # 🏆 TOP 1
+    # -----------------------------
+    output = ""
+    output += "<div style='font-size:20px; font-weight:bold; margin-bottom:10px;'>"
+    output += "🏆✨ <b>AI의 1등 추천 식당!</b> ✨🏆"
+    output += "</div>"
+
+    output += "<div style='font-size:16px; line-height:1.7;'>"
+    output += f"⭐ <b>{top['식당명']}</b><br>"
+    output += f"📍 위치: {top['위치(지하철역)']}<br>"
+    output += f"🍱 종류: {top['음식종류']}<br>"
+    output += f"💰 가격대: {int(top['가격대'])}원<br>"
+    output += f"⭐ 평점: {top['평점']}<br>"
+    output += f"💬 리뷰: {top['리뷰']}<br>"
+    output += "</div>"
+
+    # ----- 🔥 텍스트 기반 구분선 "=" * 80 -----
+    output += "<div style='font-family:monospace; margin: 12px 0 10px 0;'>"
+    output += "=" * 80
+    output += "</div>"
+
+    # -----------------------------
+    # 📌 그 외 추천 식당들
+    # -----------------------------
+    output += "<div style='margin-top:5px; margin-bottom:10px;'>"
+    output += "<h3 style='margin:0; padding:0;'>📌 그 외 추천 식당들</h3>"
+    output += "</div>"
+
+    for _, row in result.iloc[1:].iterrows():
+        output += "<div style='font-size:14px; line-height:1.55; margin-top:8px; margin-bottom:12px;'>"
+        output += f"⭐ {row['식당명']}<br>"
+        output += f"🍱 {row['음식종류']} | 💰 가격대: {int(row['가격대'])}원 | ⭐ {row['평점']}<br>"
+        output += f"💬 {row['리뷰']}<br>"
+        output += "<div style='margin:10px 0 6px 0; border-bottom:1px solid #ccc;'></div>"
+        output += "</div>"
+
+    return output
+
+
+# ------------------------
+# 3. Gradio UI
+# ------------------------
+with gr.Blocks() as demo:
+    gr.Markdown("## 🤖 AI 기반 머신러닝 서울 맛집 추천 시스템")
+
+    region = gr.Dropdown(
+        choices=sorted(df["위치(지하철역)"].unique()),
+        label="지하철역 선택"
+    )
+    food_type = gr.Dropdown(
+        choices=sorted(df["음식종류"].unique()),
+        label="음식 종류"
+    )
+    budget = gr.Slider(
+        5000, 30000, value=12000, step=500,
+        label="예산(원): 오차범위 ± 3,000원을 적용합니다."
+    )
+    age = gr.Dropdown(
+        choices=sorted(df["연령층"].unique()),
+        label="연령층"
+    )
+
+    btn = gr.Button("🔍 AI 추천받기")
+    output_box = gr.HTML()
+
+    btn.click(
+        recommend_ai,
+        inputs=[region, food_type, budget, age],
+        outputs=output_box
+    )
+
+demo.launch()
