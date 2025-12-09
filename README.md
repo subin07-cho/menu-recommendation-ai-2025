@@ -67,4 +67,46 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
     
     최종 점수 = 예측점수(70%) + 예산 적합도(30%)
 
+📂 프로젝트 폴더 구조
+```
+📁 ai-restaurant-recommender
+│
+├── 📁 data
+│     └── korean_restaurants_10000.xlsx   # 리뷰 데이터
+│
+├── 📁 src
+│     ├── recommend_ai.py                 # AI 추천 함수
+│     └── ui_gradio.py                    # Gradio Web UI 실행 파일
+│
+├── app.py                                 # 통합 실행 파일 (선택)
+│
+├── requirements.txt                       # 필요한 라이브러리
+│
+└── README.md                              # 프로젝트 설명서 (지금 내용)
+```
+##🌐 Gradio Web UI 코드
+with gr.Blocks() as demo:
+    gr.Markdown("## 🤖 AI 기반 머신러닝 맛집 추천 시스템")
+
+    region = gr.Dropdown(choices=sorted(df["위치(지하철역)"].unique()), label="지하철역 선택")
+    food_type = gr.Dropdown(choices=sorted(df["음식종류"].unique()), label="음식 종류")
+    budget = gr.Slider(5000, 30000, value=12000, step=500, label="예산(원)")
+    age = gr.Dropdown(choices=sorted(df["연령층"].unique()), label="연령층")
+
+    btn = gr.Button("🔍 AI 추천받기")
+    output_box = gr.Markdown()
+
+    btn.click(recommend_ai, inputs=[region, food_type, budget, age], outputs=output_box)
+
+demo.launch()
+
+##🏁 실행 방법
+1) 라이브러리 설치
+pip install pandas gradio
+
+2) 데이터 파일 준비
+/data/korean_restaurants_10000.xlsx
+
+3) 실행
+python ui_gradio.py
 
