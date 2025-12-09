@@ -1,6 +1,6 @@
 #🤖 AI-Based Machine Learning Restaurant Recommendation System
-
 This project is an AI-powered machine learning restaurant recommendation system that suggests the best places to eat based on subway station, cuisine type, budget, and age group.
+
 
 # 🤖 AI 기반 머신러닝 맛집 추천 시스템
 
