@@ -81,7 +81,7 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
 📁 ai-restaurant-recommender
 │
 ├── 📁 data
-│     └── korean_restaurants_10000.xlsx   # 리뷰 데이터
+│     └── Restaurants.xlsx   # 리뷰 데이터
 │
 ├── 📁 src
 │     ├── recommend_ai.py                 # AI 추천 함수
@@ -140,9 +140,9 @@ demo.launch()
    pip install pandas gradio
 
 2. 데이터 파일 위치 확인:
-/data/korean_restaurants_10000.xlsx
+/data/Restaurants.xlsx
 
-4. Gradio UI 실행:
+3. Gradio UI 실행:
 python src/ui_gradio.py
 ```
 실행 후, 터미널에 출력되는 URL로 접속하면
@@ -151,7 +151,7 @@ python src/ui_gradio.py
 ✅ 2) Colab 환경에서 실행 (선택)
 ```
 1. Colab에서 이 레포지토리를 클론하거나 코드를 복사해서 사용
-2. korean_restaurants_10000.xlsx 파일 업로드
+2. Restaurants.xlsx 파일 업로드
 3. ui_gradio.py 또는 관련 셀 실행
 4. Gradio가 생성해주는 외부 접속 링크로 들어가서 사용
 ```
