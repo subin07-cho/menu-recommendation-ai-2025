@@ -84,6 +84,7 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
 │
 └── README.md                              # 프로젝트 설명서 (지금 내용)
 ```
+---
 ##🌐 Gradio Web UI 코드
 with gr.Blocks() as demo:
     gr.Markdown("## 🤖 AI 기반 머신러닝 맛집 추천 시스템")
@@ -99,6 +100,7 @@ with gr.Blocks() as demo:
     btn.click(recommend_ai, inputs=[region, food_type, budget, age], outputs=output_box)
 
 demo.launch()
+---
 
 ##🏁 실행 방법
 1) 라이브러리 설치
