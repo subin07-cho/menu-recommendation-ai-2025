@@ -100,7 +100,7 @@ with gr.Blocks() as demo:
     btn.click(recommend_ai, inputs=[region, food_type, budget, age], outputs=output_box)
 
 demo.launch()
----
+
 ## 🏁 실행 방법
 ---
 1) 라이브러리 설치
