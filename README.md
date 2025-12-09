@@ -53,3 +53,7 @@ menu-recommendation-ai/
 └── images/
     ├── system_architecture.png
     └── example_output.png
+
+---
+
+## 📂 프로젝트 구조(예정)
