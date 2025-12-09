@@ -98,7 +98,7 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
 
 ## 🌐 Gradio Web UI 코드(요약)
 
-with gr.Blocks() as demo:
+ with gr.Blocks() as demo:
     gr.Markdown("## 🤖 AI 기반 머신러닝 맛집 추천 시스템")
 
     region = gr.Dropdown(
@@ -128,14 +128,34 @@ with gr.Blocks() as demo:
     )
 demo.launch()
 
+---
 
 ## 🏁 실행 방법
----
-링크 접속
-링크 : 
 
-## 📌 결과
+✅ 1) 로컬 환경에서 실행
+1. 필요한 라이브러리 설치:
+pip install -r requirements.txt
+또는
+pip install pandas gradio
+
+2. 데이터 파일 위치 확인:
+/data/korean_restaurants_10000.xlsx
+
+4. Gradio UI 실행:
+python src/ui_gradio.py
+
+실행 후, 터미널에 출력되는 URL로 접속하면
+브라우저에서 추천 시스템을 사용할 수 있습니다.
+
+✅ 2) Colab 환경에서 실행 (선택)
+1. Colab에서 이 레포지토리를 클론하거나 코드를 복사해서 사용
+2. korean_restaurants_10000.xlsx 파일 업로드
+3. ui_gradio.py 또는 관련 셀 실행
+4. Gradio가 생성해주는 외부 접속 링크로 들어가서 사용
+
 ---
+## 📌 결과
+
 사용자가 위치, 음식 종류, 예산, 연령층을 선택하면
 → 조건에 맞는 식당 중 점수가 높은 상위 5곳을 추천
 → 그 중 1등 식당을 강조 표시하고,
