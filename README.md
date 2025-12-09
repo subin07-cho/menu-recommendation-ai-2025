@@ -91,9 +91,10 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
 │
 └── README.md                              # 프로젝트 설명서 (현재 문서)
 ```
+---
 
 ## 🌐 Gradio Web UI 코드(요약)
----
+
 with gr.Blocks() as demo:
     gr.Markdown("## 🤖 AI 기반 머신러닝 맛집 추천 시스템")
 
