@@ -101,8 +101,8 @@ with gr.Blocks() as demo:
 
 demo.launch()
 ---
-
-##🏁 실행 방법
+## 🏁 실행 방법
+---
 1) 라이브러리 설치
 pip install pandas gradio
 
