@@ -1,6 +1,5 @@
 
 ## 🤖 AI 기반 머신러닝 맛집 추천 시스템 
-
 (AI-Based Machine Learning Restaurant Recommendation System)
  
 
