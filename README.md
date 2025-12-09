@@ -12,6 +12,8 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
 
 (This project is an AI-powered machine learning restaurant recommendation system that suggests the best places to eat based on subway station, cuisine type, budget, and age group.)
 
+★ 서울 내 맛집 찾아보기 ! ---→ https://huggingface.co/spaces/jeongeun1117/Seoul_Restaurants_recommend
+
 ---
 
 ## 🎯 프로젝트 목표 (Project Goals)
@@ -168,7 +170,11 @@ python src/ui_gradio.py
 → 그 중 1등 식당을 강조 표시하고,  
 → 각 식당의 리뷰와 평점을 함께 보여줍니다.  
   
-스크린샷 예시(추가 예정):
+스크린샷 예시:
+
+<img width="1314" height="1346" alt="image" src="https://github.com/user-attachments/assets/6fad7a03-44db-49cb-9252-36564f87d12e" />
+
+
 
 ## 팀원
 ---
