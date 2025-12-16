@@ -18,6 +18,10 @@ AI 기반 머신러닝 맛집 추천 시스템 입니다.
 
 https://huggingface.co/spaces/jeongeun1117/Seoul_Restaurants_recommend
 
+<<< UPGRADE Ver.1 >>>
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+https://huggingface.co/spaces/jeongeun1117/goodfoodget
+
 ---
 
 ## 🎯 프로젝트 목표 (Project Goals)
