@@ -1,0 +1,6 @@
+gradio
+pandas
+numpy
+lightgbm
+scikit-learn
+openpyxl
