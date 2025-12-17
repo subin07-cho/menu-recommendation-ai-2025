@@ -11,7 +11,7 @@
 
 (This project loads and preprocesses sample review data, then calculates scores based on factors such as subway station, food type, budget, and age group to generate random recommendations.)
 
-★ 서울 내 맛집 찾아보기 ★ 
+★ AI 메뉴 & 맛집 추천 받기 ★ 
 
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
@@ -31,7 +31,7 @@ https://huggingface.co/spaces/jeongeun1117/goodfoodget
 
 이 프로젝트는 단순한 식당 추천을 넘어서,  
 데이터 기반 의사결정 + 사용자 중심 UX + AI 추천 기술  
-3가지를 모두 충족하는 것을 목표로 합니다.
+3가지를 모두 충족하는 것을 목표로 했습니다.
 
 
 
