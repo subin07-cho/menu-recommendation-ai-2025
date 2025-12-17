@@ -59,17 +59,14 @@ https://huggingface.co/spaces/jeongeun1117/goodfoodget
     필터링 이후, 점수를 계산하여 조건에 해당하는 메뉴 및 식당을 추천합니
 
 
-🏆 3. 오늘의 맛집 운세, AI 메뉴 추천, 지하철역별 맛집 추천천
-
-    별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조
-
-    별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조 표시 
-    별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조 표시 
-    별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조 표시 
+🏆 3. 오늘의 맛집 운세, AI 메뉴 추천, 지하철역별 맛집 추천
+        
+    랜덤으로 메뉴 선정, 메뉴에 맞는 1등 맛집 추천 제공
+    대분류 > 중분류로 음식을 구분하여 선정한 메뉴에 맞는 맛집 추천 제공
+    분류 구분을 점수화시켜 1등 식당 제공
+    점수화한 맛집을 기준으로 2~5위 함께 제공
     
-    2~5위 식당도 리뷰와 함께 함께 보여주어 다양한 선택지 제공
     
-    Gradio의 Markdown + HTML 조합으로 시각적으로 깔끔한 출력
 
 💻 4. Gradio Web UI
  
@@ -93,7 +90,8 @@ https://huggingface.co/spaces/jeongeun1117/goodfoodget
 
 ## 📂 프로젝트 폴더 구조
 ```
-📁 ai-restaurant-recommender
+📁 ai-resta
+urant-recommender
 │
 ├── 📁 data
 │     └── Restaurants.xlsx   # 리뷰 데이터
