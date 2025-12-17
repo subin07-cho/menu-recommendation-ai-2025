@@ -4,25 +4,19 @@
 여러분의 관심이 팀에게 큰 힘이 됩니다 :)
 감사합니다 😊💙 <p></p>
         
-## 🤖 AI 기반 머신러닝 맛집 추천 시스템 (AI-Based Machine Learning Restaurant Recommendation System)
+## 🤖 AI 메뉴 & 맛집 추천시스템(AI Menu & Restaurant Recommendation System)
  
 
-이 프로젝트는 지하철역, 음식 종류, 예산, 연령층에 따라 사용자에게 적합한 맛집을 추천해주는
-AI 기반 머신러닝 맛집 추천 시스템 입니다.
+이 프로젝트는 sample 리뷰 데이터를 불러와 전처리하고, 지하철역, 음식종류, 예산, 연령층 등 점수를 계산하여 랜덤 추천하는 과정을 담습니다.
 
-(This project is an AI-powered machine learning restaurant recommendation system that suggests the best places to eat based on subway station, cuisine type, budget, and age group.)
+(This project loads and preprocesses sample review data, then calculates scores based on factors such as subway station, food type, budget, and age group to generate random recommendations.)
 
 ★ 서울 내 맛집 찾아보기 ★ 
 
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-https://huggingface.co/spaces/jeongeun1117/Seoul_Restaurants_recommend
-
-<<< UPGRADE Ver.1 >>>
-
-↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
 https://huggingface.co/spaces/jeongeun1117/goodfoodget
+
 
 ---
 
@@ -55,18 +49,22 @@ https://huggingface.co/spaces/jeongeun1117/goodfoodget
 
 📍 2. 사용자 조건 필터링
 
-    사용자가 입력한 조건을 기반으로 필터링 후 추천:
+    사용자가 선택한 조건을 기반으로 필터링 후 추천:
 
-     📍      위치         ->   지하철역 단위 필터링
-     🍱    음식종류	     ->   한식 / 일식 / 카페 / 베트남 등
+     📍      위치            ->   지하철역 단위 필터링
+     🍱    음식종류	     ->   양식 / 일식 / 중식 / 한식식 등
      💰      예산	     ->   사용자의 예산, 식당의 가격 차이를 반영
      👤     연령층	     ->   연령대별 선호도 반영 가능
 
-    필터링 이후, 점수를 계산하여 **TOP 5 식당을 추천**합니다.
+    필터링 이후, 점수를 계산하여 조건에 해당하는 메뉴 및 식당을 추천합니
 
 
-🏆 3. TOP 1 최종 추천 + 2~5위 추천
+🏆 3. 오늘의 맛집 운세, AI 메뉴 추천, 지하철역별 맛집 추천천
 
+    별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조
+
+    별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조 표시 
+    별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조 표시 
     별도 박스 디자인으로 AI가 가장 추천하는 1등 식당을 강조 표시 
     
     2~5위 식당도 리뷰와 함께 함께 보여주어 다양한 선택지 제공
