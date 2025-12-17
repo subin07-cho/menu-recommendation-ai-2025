@@ -129,38 +129,8 @@ urant-recommender
 ---
 
 
-## 🌐 Gradio Web UI 코드(요약)
-```
- with gr.Blocks() as demo:
-    gr.Markdown("## 🤖 AI 기반 머신러닝 맛집 추천 시스템")
 
-    region = gr.Dropdown(
-        choices=sorted(df["위치(지하철역)"].unique()),
-        label="지하철역 선택"
-    )
-    food_type = gr.Dropdown(
-        choices=sorted(df["음식종류"].unique()),
-        label="음식 종류"
-    )
-    budget = gr.Slider(
-        5000, 30000, value=12000, step=500,
-        label="예산(원)"
-    )
-    age = gr.Dropdown(
-        choices=sorted(df["연령층"].unique()),
-        label="연령층"
-    )
 
-    btn = gr.Button("🔍 AI 추천받기")
-    output_box = gr.Markdown()
-
-    btn.click(
-        recommend_ai,
-        inputs=[region, food_type, budget, age],
-        outputs=output_box
-    )
-demo.launch()
-```
 ---
 
 ## 📌 결과
@@ -170,7 +140,7 @@ demo.launch()
 → 그 중 1등 식당을 강조 표시하고,  
 → 각 식당의 리뷰와 평점을 함께 보여줍니다.  
   
-스크린샷 예시:
+(스크린샷 예시)
 <img width="1366" height="1000" alt="image" src="https://github.com/user-attachments/assets/aee7b7a3-7abd-4ae9-885c-0e076ffb6fb1" />
 <img width="1360" height="1348" alt="image" src="https://github.com/user-attachments/assets/8fab21f3-f060-4db0-b512-5d064a4b41c6" />
 <img width="1344" height="1410" alt="image" src="https://github.com/user-attachments/assets/4ae46436-3f23-41d4-9e62-f7dc5eb9430a" />
